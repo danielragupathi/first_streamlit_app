@@ -9,3 +9,6 @@ streamlit.text('🥑🍞Avocado Roast')
 
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
+
+
+import pandas
