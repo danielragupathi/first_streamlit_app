@@ -1,8 +1,5 @@
 import streamlit
-import pandas
-import requests
 import snowflake.connector
-from urllib.error import URLError
 
 streamlit.title('My Parents New Healthy Diner')
 streamlit.header('Breakfast Favorites')
@@ -18,9 +15,8 @@ my_fruit_list = my_fruit_list.set_index('Fruit')
 fruits_selected=streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 fruits_to_show=my_fruit_list.loc[fruits_selected]
 
-#new section to display fruityvice api
-#import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+import pandas
+my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+streamlit.dataframe(my_fruit_list)
 
 
